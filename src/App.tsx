@@ -14,9 +14,12 @@ type FinancialData = {
 };
 
 const formatCurrency = (value: number) => {
-  if (value >= 1e9) return `$${(value / 1e9).toFixed(2)}B`;
-  if (value >= 1e6) return `$${(value / 1e6).toFixed(2)}M`;
-  return `$${value.toLocaleString()}`;
+  const absVal = Math.abs(value);
+  const sign = value < 0 ? '-' : '';
+  if (absVal >= 1e9) return `${sign}$${(absVal / 1e9).toFixed(1)}B`;
+  if (absVal >= 1e6) return `${sign}$${(absVal / 1e6).toFixed(1)}M`;
+  if (absVal >= 1e3) return `${sign}$${(absVal / 1e3).toFixed(1)}K`;
+  return `${sign}$${absVal.toLocaleString()}`;
 };
 
 export default function App() {
@@ -193,6 +196,18 @@ export default function App() {
       setDioAdjustment(clickedDays - metrics.baseDio);
     }
   };
+
+  const dioYDomain = useMemo(() => {
+    if (!metrics || !data) return [-1000, 1000];
+    const baseFCF = typeof data.freeCashFlow === 'number' && data.freeCashFlow !== 0 
+      ? data.freeCashFlow 
+      : (data.revenue * 0.1); 
+    const absFCF = Math.abs(baseFCF) || 1;
+    const maxImpactDollar = 60 * (metrics.dioValuePerDay || 0);
+    const maxImpactPct = Math.ceil((Math.abs(maxImpactDollar) / absFCF) * 100);
+    const finalMax = Math.max(10, Math.ceil(maxImpactPct * 1.2));
+    return [-finalMax, finalMax];
+  }, [metrics, data]);
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900 p-4 sm:p-8 flex flex-col overflow-hidden">
@@ -448,7 +463,7 @@ export default function App() {
                             label={{ value: 'Absolute Days', position: 'insideBottom', offset: -5, fill: '#64748b', fontSize: 12, fontWeight: 600 }}
                           />
                           <YAxis 
-                            domain={[-1000, 1000]}
+                            domain={dioYDomain}
                             axisLine={false} 
                             tickLine={false} 
                             tick={{fill: '#94a3b8', fontSize: 13, fontWeight: 500}} 
