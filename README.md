@@ -1,6 +1,6 @@
-Back at JPMorgan in 2018/2019 I spoke with a Managing Director in sales. I was surprised that they couldn't articulate the financial impact of some products to customers. I spent a few weeks networking with the team, learning about Treasury Services and researched what math formulas were necessary for evaluating Treasury Service impacts.
+Reflection: Back in 2018 at JPMorgan, I saw an opportunity to better quantify the financial impact of Treasury Services for our clients. At the time, bridging that gap required weeks of networking, learning the business and products, and deep-diving into math formulas to get it right.
 
-Now, in 2026, it took me <30min in Google AI Studio to build a dynamic prototype in production.
+Fast forward to 2026: The barrier between an idea and a production-ready tool has vanished. I was able to take those same logic requirements and build a dynamic prototype in Google AI Studio in under 30 minutes. It’s incredible how much faster we can now deliver value to the front lines.
 
 https://my-google-ai-studio-applet-733599032996.us-east1.run.app
 
