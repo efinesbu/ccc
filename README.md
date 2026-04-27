@@ -1,10 +1,8 @@
-TDLR; Cash Conversion Cycle Calculator
-Why? 
-Back at JPMorgan in 2018/2019 I spoke with a Director in sales. I was surprised that they couldnt articulate the financial impact of their products to customers. So I researched what math formulas were necessary for the calculation and made a simple calculator in excel.
+Back at JPMorgan in 2018/2019 I spoke with a Managing Director in sales. I was surprised that they couldn't articulate the financial impact of some products to customers. I spent a few weeks networking with the team, learning about Treasury Services and researched what math formulas were necessary for evaluating Treasury Service impacts.
 
-Now, in 2026, it took me 30min in Google AI Studio to build a dynamic prototype in production.
+Now, in 2026, it took me <30min in Google AI Studio to build a dynamic prototype in production.
 
-Live Webapp: https://my-google-ai-studio-applet-733599032996.us-east1.run.app/
+https://my-google-ai-studio-applet-733599032996.us-east1.run.app
 
 
 
